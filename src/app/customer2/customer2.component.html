@@ -1,0 +1,337 @@
+<div style="display: flex">
+
+<div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"
+     fxLayoutGap="20px" style="width:30%">
+
+  <div fxFlex class="form-component-holder mat-elevation-z4">
+    <mat-toolbar class="form-header">
+      <h1 class="mat-headline center-align" >Personal Details</h1>
+    </mat-toolbar>
+    <div [hidden]="submitted" fxLayout="column"  class="widgetHolder-content" fxLayoutAlign="space-around stretch" style="background-color: white;">
+
+
+      <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" fxLayout="column" fxFlex="100" >
+
+        <mat-form-field class="width">
+          <input type="text" matInput placeholder="Enter Customer Id:"  formControlName="customerId" required>
+        </mat-form-field>
+        <mat-error *ngIf="customerId.invalid&& (customerId.dirty || customerId.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+          Name must be at least 6 characters long.
+        </mat-error>
+
+        <mat-form-field class="width">
+          <input type="text" matInput placeholder="Enter Customer Name:"  formControlName="customerName" required>
+        </mat-form-field>
+        <mat-error *ngIf="customerName.invalid&& (customerName.dirty || customerName.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+          Name must be at least 6 characters long.
+        </mat-error>
+
+        <mat-form-field  class="width">
+          <input type="text" matInput placeholder="Enter your Residence Number:"
+                 formControlName="number" required pattern="[0-9]*">
+        </mat-form-field>
+        <mat-error *ngIf="cusResidenceNo.hasError('minlength') && (cusResidenceNo.dirty || cusResidenceNo.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+        <mat-form-field  class="width">
+        <input type="text" matInput placeholder="Enter your Residence Address:"
+               formControlName="cusMobile" required pattern="[0-9]*">
+      </mat-form-field>
+        <mat-error *ngIf="cusResidenceAddress.hasError('minlength') && (cusResidenceAddress.dirty || cusResidenceAddress.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+        <mat-form-field  class="width">
+          <input type="text" matInput placeholder="Enter your DOB::"
+                 formControlName="cusMobile" required pattern="[0-9]*">
+        </mat-form-field>
+        <mat-error *ngIf="cusDateOfBirth.hasError('minlength') && (cusDateOfBirth.dirty || cusDateOfBirth.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+        <h4>Gender</h4>
+        <mat-form-field>
+          <mat-select placeholder="Select The Gender:">
+            <mat-option>
+              Male
+            </mat-option>
+            <mat-option>
+              FeMale
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="width">
+          <input type="text" matInput placeholder="Enter Join date"  formControlName="cusDateOfJoin" required>
+        </mat-form-field>
+        <mat-error *ngIf="cusDateOfJoin.invalid&& (cusDateOfJoin.dirty || cusDateOfJoin.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+          Name must be at least 6 characters long.
+        </mat-error>
+
+      </form>
+    </div>
+    <div [hidden]="!submitted" style="background-color: white;">
+      <div fxLayout="column" fxLayoutAlign="space-around stretch" >
+        <h2 class="mat-headline center-align">You submitted the following:</h2>
+        <div fxLayout="row"  fxLayoutGap="20px" class="mat-body center-align">
+          <div >Name</div>
+          <div>{{ profileForm.value.username}}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+          <div>Number</div>
+          <div>{{profileForm.value.number }}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px"  class="mat-body center-align">
+          <div >Password</div>
+          <div>{{ profileForm.value.pwd}}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+          <div >Email</div>
+          <div>{{ profileForm.value.email}}</div>
+        </div>
+        <br>
+        <button mat-raised-button type="submit" (click)="submitted=false">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"
+     fxLayoutGap="20px" style="width:30%">
+
+  <div fxFlex class="form-component-holder mat-elevation-z4">
+
+    <mat-toolbar class="form-header">
+      <h1 class="mat-headline center-align" >Company Details</h1>
+    </mat-toolbar>
+    <div [hidden]="submitted" fxLayout="column"  class="widgetHolder-content" fxLayoutAlign="space-around stretch" style="background-color: white;">
+
+
+      <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" fxLayout="column" fxFlex="100" >
+
+
+        <mat-form-field class="width">
+          <input type="text" matInput placeholder="Enter Company Name"  formControlName="comName" required>
+        </mat-form-field>
+        <mat-error *ngIf="comName.invalid&& (comName.dirty || comName.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+          Name must be at least 6 characters long.
+        </mat-error>
+
+        <mat-form-field class="width">
+          <input type="text" matInput placeholder="Enter Company Address"  formControlName="comAddress" required>
+        </mat-form-field>
+        <mat-error *ngIf="comAddress.invalid&& (comAddress.dirty || comAddress.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+          Name must be at least 6 characters long.
+        </mat-error>
+
+        <mat-form-field  class="width">
+          <input type="text" matInput placeholder="Enter your Number"
+                 formControlName="comOfficeNo1" required pattern="[0-9]*">
+        </mat-form-field>
+        <mat-error *ngIf="comOfficeNo1.hasError('minlength') && (comOfficeNo1.dirty || comOfficeNo1.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+        <mat-form-field  class="width">
+          <input type="text" matInput placeholder="Enter your Office No 2"
+                 formControlName="comOfficeNo2" required pattern="[0-9]*">
+        </mat-form-field>
+        <mat-error *ngIf="comOfficeNo2.hasError('minlength') && (comOfficeNo2.dirty || comOfficeNo2.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+        <mat-form-field  class="width">
+          <input type="text" matInput placeholder="Enter your Fax"
+                 formControlName="comFaxNo" required pattern="[0-9]*">
+        </mat-form-field>
+        <mat-error *ngIf="comFaxNo.hasError('minlength') && (comFaxNo.dirty || comFaxNo.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+          Please enter valid number
+        </mat-error>
+
+
+        <mat-form-field  class="width">
+          <input type="email" matInput placeholder="Enter Your Email"  formControlName="comEmail"  required
+                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  required >
+        </mat-form-field>
+        <mat-error *ngIf="comEmail.invalid && (comEmail.dirty || comEmail.touched)" align="end" style="color: red;" class="mat-body-1 center-align" >
+
+          Please enter valid email
+        </mat-error>
+
+
+      </form>
+    </div>
+    <div [hidden]="!submitted" style="background-color: white;">
+      <div fxLayout="column" fxLayoutAlign="space-around stretch" >
+        <h2 class="mat-headline center-align">You submitted the following:</h2>
+        <div fxLayout="row"  fxLayoutGap="20px" class="mat-body center-align">
+          <div >Name</div>
+          <div>{{ profileForm.value.username}}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+          <div>Number</div>
+          <div>{{profileForm.value.number }}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px"  class="mat-body center-align">
+          <div >Password</div>
+          <div>{{ profileForm.value.pwd}}</div>
+        </div>
+        <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+          <div >Email</div>
+          <div>{{ profileForm.value.email}}</div>
+        </div>
+        <br>
+        <button mat-raised-button type="submit" (click)="submitted=false">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"
+       fxLayoutGap="20px" style="width:30%">
+
+    <div fxFlex class="form-component-holder mat-elevation-z4">
+      <mat-toolbar class="form-header">
+        <h1 class="mat-headline center-align" >Introducer Details</h1>
+      </mat-toolbar>
+      <div [hidden]="submitted" fxLayout="column"  class="widgetHolder-content" fxLayoutAlign="space-around stretch" style="background-color: white;">
+
+
+        <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" fxLayout="column" fxFlex="100" >
+
+          <mat-form-field class="width">
+            <input type="text" matInput placeholder="Enter Username"  formControlName="introName" required>
+          </mat-form-field>
+          <mat-error *ngIf="introName.invalid&& (introName.dirty || introName.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+            Name must be at least 6 characters long.
+          </mat-error>
+
+          <mat-form-field class="width">
+            <input type="text" matInput placeholder="Enter Username"  formControlName="introAddress" required>
+          </mat-form-field>
+          <mat-error *ngIf="introAddress.invalid&& (introAddress.dirty || introAddress.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+            Name must be at least 6 characters long.
+          </mat-error>
+
+          <mat-form-field  class="width">
+            <input type="text" matInput placeholder="Enter your Number"
+                   formControlName="introMobile" required pattern="[0-9]*">
+          </mat-form-field>
+          <mat-error *ngIf="introMobile.hasError('minlength') && (introMobile.dirty || introMobile.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+            Please enter valid number
+          </mat-error>
+
+          <mat-form-field  class="width">
+            <input type="text" matInput placeholder="Enter your Number"
+                   formControlName="introOfficeNo" required pattern="[0-9]*">
+          </mat-form-field>
+          <mat-error *ngIf="introOfficeNo.hasError('minlength') && (introOfficeNo.dirty || introOfficeNo.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+            Please enter valid number
+          </mat-error>
+
+          <mat-form-field  class="width">
+            <input type="text" matInput placeholder="Enter your Number"
+                   formControlName="introResidenceNo" required pattern="[0-9]*">
+          </mat-form-field>
+          <mat-error *ngIf="introResidenceNo.hasError('minlength') && (introResidenceNo.dirty || introResidenceNo.touched)" align="end" style="color: red;" class="mat-body-1 center-align">
+            Please enter valid number
+          </mat-error>
+
+          <mat-form-field class="width">
+            <input type="text" matInput placeholder="Enter Username"  formControlName="introNic" required>
+          </mat-form-field>
+          <mat-error *ngIf="introNic.invalid&& (introNic.dirty || introNic.touched)" align="end" style="color: red;" class="mat-body-1 center-align ">
+            Name must be at least 6 characters long.
+          </mat-error>
+
+
+          <h4>Gender</h4>
+          <mat-form-field>
+            <mat-select placeholder="Select The Gender:">
+              <mat-option>
+                Male
+              </mat-option>
+              <mat-option>
+                FeMale
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button style="font-weight: bold;" mat-raised-button type="submit" class="mat-headline center-align">Submit</button>
+
+
+
+        </form>
+      </div>
+      <div [hidden]="!submitted" style="background-color: white;">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" >
+          <h2 class="mat-headline center-align">You submitted the following:</h2>
+          <div fxLayout="row"  fxLayoutGap="20px" class="mat-body center-align">
+            <div >Name</div>
+            <div>{{ profileForm.value.username}}</div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+            <div>Number</div>
+            <div>{{profileForm.value.number }}</div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px"  class="mat-body center-align">
+            <div >Password</div>
+            <div>{{ profileForm.value.pwd}}</div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px" class="mat-body center-align">
+            <div >Email</div>
+            <div>{{ profileForm.value.email}}</div>
+          </div>
+          <br>
+          <button mat-raised-button type="submit" (click)="submitted=false">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--table-->
+
+
+<section class="content" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <table id="tblUsers" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>User Name</th>
+            <th>Privillagef</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: p };let i=index"
+              (click)="selectUser(user)" [class.selected]="user===selectedUser" [style.background-color]="getStyle(user)">
+
+            <td>{{user.userId}}</td>
+            <td>{{user.nameFullName}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.privilege}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <div class="btn-div">
+          <button (click)="openSaveuserModal()" class="fa fa-plus" class="btn btn-primary" >Add</button>
+          <button (click)="openedituserModal()" class="fa fa-edit " class="btn btn-warning">Edit</button>
+          <button (click)="openDelete_userWarningModal()" class="fa fa-trash " class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>

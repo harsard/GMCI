@@ -1,0 +1,171 @@
+<form [formGroup]="customerFormGroup">
+  <fieldset>
+    <legend>Personal Details</legend>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Customer Id:</label>
+          <input class="form-control" formControlName="customerId">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Customer Name:</label>
+          <input class="form-control" formControlName="customerName">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>NIC:</label>
+          <input class="form-control" formControlName="cusNic">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Mobile:</label>
+          <input class="form-control" formControlName="cusMobile">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Residence Number:</label>
+          <input class="form-control" formControlName="cusResidenceNo">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Residence Address:</label>
+          <textarea class="form-control" formControlName="cusResidenceAddress"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>DOB:</label>
+          <input class="form-control" type="date" formControlName="cusDateOfBirth">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Gender:</label>
+          <select class="form-control" formControlName="cusGender">
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Date Joined:</label>
+          <input class="form-control" type="date" formControlName="cusDateOfJoin">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Company Details</legend>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Company Name:</label>
+          <input class="form-control"  formControlName="comName">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Company Address:</label>
+          <textarea class="form-control" formControlName="comAddress"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Office Telephone:</label>
+          <input class="form-control"  formControlName="comOfficeNo1">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Office Telephone:</label>
+          <input class="form-control"  formControlName="comOfficeNo2">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Fax:</label>
+          <input class="form-control"  formControlName="comFaxNo">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Email:</label>
+          <input class="form-control"  formControlName="comEmail">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Introducer Details</legend>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Name:</label>
+          <input class="form-control" type="text" formControlName="introName">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Address:</label>
+          <textarea class="form-control" formControlName="introAddress"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Mobile:</label>
+          <input class="form-control" type="number" formControlName="introMobile">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Office:</label>
+          <input class="form-control" type="number" formControlName="introOfficeNo">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Residence:</label>
+          <input class="form-control" type="number" formControlName="introResidenceNo">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>NIC:</label>
+          <input class="form-control" formControlName="introNic">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Gender:</label>
+          <select class="form-control" formControlName="introGender">
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="row">
+      <div class="col-md-12 text-right">
+        <button class="btn btn-success mr-2" (click)="onSave()" type="button" [disabled]="saveDisable()">Save</button>
+        <button class="btn btn-cancel mr-2" (click)="onCancel()" type="button">Cancel</button>
+      </div>
+    </div>
+</form>
